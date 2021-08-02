@@ -25,6 +25,7 @@ const imgSlider = (imgArray, imageSliderParentElementId) => {
     leftArrow.innerText = '<';
     leftArrow.style.fontSize = '1.5em';
     slideShowContainer.appendChild(leftArrow);
+    leftArrow.addEventListener('click', () => {imagePrevious()});
     // image element to hold image
     const contentImage = document.createElement('img');
     contentImage.setAttribute('class', 'imagedisplay');
@@ -40,6 +41,26 @@ const imgSlider = (imgArray, imageSliderParentElementId) => {
     
     slideShowContainer.appendChild(rightArrow);
     rightArrow.addEventListener('click', () => {imageNext()});
+
+
+    // Make div holding row of circle buttons to jump to specific images
+    const imageDotNavContainer = document.createElement('div');
+    imageDotNavContainer.setAttribute('class', 'imagedotcontainer');
+    slideShowContainer.appendChild(imageDotNavContainer);
+    for (let i = 0; i <= imgArray.length -1; i++) {
+        const dot = document.createElement('button');
+        dot.setAttribute('class', 'navDot');
+        
+        dot.setAttribute('dotImageIndex', i); // data point index to pass in to get correct image from array
+        dot.addEventListener('click', () => {goToImage(dot.getAttribute('dotImageIndex'))} ); 
+        imageDotNavContainer.appendChild(dot);
+    }
+
+    // function to jump to specific image in array 
+
+    const goToImage = (imageIndex) => {
+        return contentImage.src = imgArray[imageIndex];
+    }
     
     // need function to advance through Array for image to display
     const imageNext = () => {
@@ -52,11 +73,18 @@ const imgSlider = (imgArray, imageSliderParentElementId) => {
             } else if (contentImage.src === imgArray[last]) {
                  return contentImage.src = imgArray[0];
             }
-                
-        
-            
-                
-            
+        }
+    }
+
+    // function to move to previous image
+    const imagePrevious = () => {
+        let last = imgArray.length - 1; 
+        for (let i = 0; i <= imgArray.length; i++) {
+            if (contentImage.src === imgArray[i] && contentImage.src != imgArray[0]) {
+                return contentImage.src = imgArray[i - 1];
+            } else if (contentImage.src === imgArray[0]) {
+                return contentImage.src = imgArray[last];
+            }
         }
     }
     /*
