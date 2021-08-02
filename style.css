@@ -1,0 +1,17 @@
+.container {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    object-fit: contain;
+}
+.frame {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    object-fit: contain;
+}
+.imagedisplay {
+    max-width: 750px;
+    object-fit: contain;
+}
+
