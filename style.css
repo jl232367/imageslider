@@ -17,8 +17,17 @@
 .navDot {
   height: 25px;
   width: 25px;
+  margin: 5px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+}
+.navDot:hover {
+    background-color: white;
+}
+.imagedotcontainer {
+    max-width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 

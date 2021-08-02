@@ -56,6 +56,8 @@ const imgSlider = (imgArray, imageSliderParentElementId) => {
         imageDotNavContainer.appendChild(dot);
     }
 
+    
+
     // function to jump to specific image in array 
 
     const goToImage = (imageIndex) => {
@@ -87,6 +89,7 @@ const imgSlider = (imgArray, imageSliderParentElementId) => {
             }
         }
     }
+    setInterval(imageNext, 10000);
     /*
 if (contentImage.src === imgArray[last]) {
                    return contentImage.src = imgArray[0]
@@ -109,3 +112,4 @@ for (let i = 0; i <= imgArray.length; i++) {
 }
 
 imgSlider(arrayOfImages, 'imageFrame');
+
